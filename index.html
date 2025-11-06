@@ -2,16 +2,105 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon Entreprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jamly – PCG</title>
+  <meta name="description" content="Jamly, un jeu musical par PCG : devinez les musiques des autres joueurs. Informations officielles de l'éditeur et contacts." />
+
+  <!-- Open Graph (prévisualisation réseaux) -->
+  <meta property="og:title" content="Jamly – Jeu musical par PCG" />
+  <meta property="og:description" content="Devinez les musiques des autres joueurs. Éditeur : PCG." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jamly.fr/" />
+
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin-top: 15%; }
-    h1 { color: #0050ff; }
+    :root { --fg:#0b1221; --muted:#5c6b84; --brand:#2f66ff; }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      color:var(--fg); background:#f6f8fb;
+    }
+    header, main, footer{
+      max-width:960px; margin:auto; padding:24px;
+    }
+    header{
+      padding-top:56px; text-align:center;
+    }
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:#e9efff; color:#2148b0; font-weight:600; font-size:12px; letter-spacing:.03em}
+    h1{margin:12px 0 6px; font-size:34px}
+    h2{margin:24px 0 8px; font-size:20px}
+    p{color:var(--muted); line-height:1.6}
+    .card{
+      background:#fff; border-radius:16px; padding:20px; box-shadow:0 8px 20px rgba(16,24,40,.06);
+      margin-top:18px;
+    }
+    .grid{display:grid; gap:16px}
+    @media (min-width:720px){ .grid{grid-template-columns:1fr 1fr} }
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+    footer{color:var(--muted); font-size:14px; text-align:center; padding-bottom:48px}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
   </style>
+
+  <!-- Données structurées (Organization + Product) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PCG",
+    "url": "https://jamly.fr/",
+    "logo": "https://jamly.fr/icon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "157 route de Mosouvre",
+      "addressCountry": "FR"
+    },
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "contact@jamly.fr"
+    }]
+  }
+  </script>
 </head>
 <body>
-  <h1>Mon Entreprise</h1>
-  <p>Nous développons des solutions web et mobiles innovantes.</p>
-  <p>Contact : contact@tondomaine.fr</p>
+  <a class="sr-only" href="#contenu">Aller au contenu</a>
+
+  <header>
+    <div class="badge">PCG — Site officiel</div>
+    <h1>Jamly</h1>
+    <p>Un <strong>jeu musical</strong> où les joueurs essaient de <strong>deviner les musiques des autres</strong>.</p>
+  </header>
+
+  <main id="contenu">
+    <div class="grid">
+      <section class="card" aria-labelledby="a-propos">
+        <h2 id="a-propos">À propos de l’application</h2>
+        <p><strong>Jamly</strong> est une application mobile éditée par <strong>PCG</strong>. Les utilisateurs partagent des extraits ou indices musicaux et défient leurs amis pour reconnaître les titres le plus vite possible.</p>
+        <p>Objectif&nbsp;: proposer une expérience sociale, ludique et respectueuse des ayants droit.</p>
+      </section>
+
+      <section class="card" aria-labelledby="editeur">
+        <h2 id="editeur">Éditeur</h2>
+        <p><strong>PCG</strong></p>
+        <p>Siège social : 157 route de Mosouvre</p>
+        <p>Contact : <a href="mailto:contact@jamly.fr">contact@jamly.fr</a></p>
+        <p>Nom de domaine : <span class="mono">jamly.fr</span></p>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="mentions">
+      <h2 id="mentions">Mentions simples</h2>
+      <p>Ce site présente officiellement l’application <strong>Jamly</strong> et son éditeur <strong>PCG</strong>. Pour toute demande de presse, partenariat, ou support, merci d’écrire à <a href="mailto:contact@jamly.fr">contact@jamly.fr</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> PCG — Jamly. Tous droits réservés.
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
